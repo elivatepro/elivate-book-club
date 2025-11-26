@@ -266,3 +266,10 @@
   .mobile-menu-overlay,
   .mobile-menu-panel { display: none !important; }
 }
+
+/* Hide header CTA on mobile, rely on menu overlay instead */
+@media (max-width: 767px) {
+  header .btn[data-waitlist="true"] {
+    display: none !important;
+  }
+}
