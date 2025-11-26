@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Current Selection · Elivate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'literary-black': '#0A0908',
+            parchment: '#F7F3E9',
+            graphite: '#2C2B28',
+            'ink-blue': '#1E3A5F',
+            'margin-red': '#8B2635',
+            'gold-leaf': '#C9A961',
+            sage: '#6B7F59',
+            'stone-gray': '#B8B5AD',
+            'soft-gray': '#E8E6DC',
+            whisper: '#FAF9F5'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Crimson Pro', 'Georgia', 'serif'],
+            ui: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {body {@apply bg-parchment text-literary-black font-body;}}
+    @layer components {
+      .pill {@apply inline-flex items-center gap-2 rounded-full border border-soft-gray px-4 py-2 text-xs font-ui uppercase tracking-[0.3em];}
+    }
+  </style>
+  <script defer src="site.js"></script>
+</head>
+<body id="top">
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-stone-gray bg-[rgba(250,249,245,0.95)] backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="font-display text-2xl">Elivate</a>
+      <nav class="hidden items-center gap-6 font-ui text-sm text-graphite md:flex">
+        <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+        <a class="hover:text-ink-blue" href="events.html">Events</a>
+        <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+        <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+      </nav>
+      <a href="membership.html" class="inline-flex items-center rounded border border-ink-blue px-5 py-2 text-xs font-semibold text-ink-blue transition hover:bg-ink-blue hover:text-white" data-waitlist="true">Join</a>
+    </div>
+  </header>
+
+  <main class="pt-28">
+    <section class="bg-white" data-animate>
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-center" id="book-section">
+        <div class="space-y-6">
+          <p class="pill">Current Selection · January 2025</p>
+          <h1 class="font-display text-4xl font-black leading-tight md:text-5xl" id="book-title">The Architecture of Thought</h1>
+          <p class="text-lg text-graphite" id="book-meta">By Distinguished Author · Literary Fiction · 352 pages · Pace: ~40 pages/week</p>
+          <div class="flex flex-wrap gap-3 text-sm font-semibold text-graphite">
+            <span class="rounded-full border border-soft-gray bg-whisper px-3 py-1" id="session-chip">Author Q&A · Jan 28 · 7 PM EST</span>
+            <span class="rounded-full border border-soft-gray bg-whisper px-3 py-1" id="leader-chip">Discussion Leader: [Moderator Name]</span>
+            <span class="rounded-full border border-soft-gray bg-whisper px-3 py-1">Forums open daily</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#schedule" class="btn btn-primary">View Reading Plan</a>
+            <a href="events.html" class="btn btn-secondary">Join Live Discussions</a>
+            <a href="resources.html" class="btn btn-secondary">Download Guide</a>
+          </div>
+          <div class="grid gap-4 rounded-3xl border border-soft-gray bg-whisper p-6 shadow-sm">
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Why we chose it</p>
+              <p class="mt-2 text-lg leading-8 text-graphite" id="why-text">An interrogation of memory and identity that sustains four weeks of layered conversation—selected from 200+ submissions for craft and contemporary resonance.</p>
+            </div>
+            <div>
+              <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Themes to watch</p>
+              <ul class="mt-2 space-y-1 text-graphite" id="themes-list">
+                <li>• Technology and collective responsibility</li>
+                <li>• Architecture as metaphor for thought</li>
+                <li>• Personal memory vs. public record</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="overflow-hidden rounded-3xl border border-soft-gray shadow-lg">
+            <img src="Images/Person Reading a Book.jpg" alt="Current book ambiance" class="h-full w-full object-cover" />
+          </div>
+          <dl class="grid gap-4 rounded-3xl border border-soft-gray bg-whisper p-6 text-sm text-graphite shadow-sm">
+            <div class="flex justify-between">
+              <dt class="font-semibold uppercase tracking-[0.3em]">Start</dt>
+              <dd id="start-date">January 1, 2025</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="font-semibold uppercase tracking-[0.3em]">Finish</dt>
+              <dd id="end-date">January 31, 2025</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="font-semibold uppercase tracking-[0.3em]">Live Sessions</dt>
+              <dd id="live-sessions">Jan 7 · 14 · 21 · 28 · 31</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="font-semibold uppercase tracking-[0.3em]">Guide</dt>
+              <dd>Available in Resources</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function() {
+        const raw = localStorage.getItem('elivate-current-selection');
+        if (!raw) return;
+        try {
+          const data = JSON.parse(raw);
+          const titleEl = document.getElementById('book-title');
+          const metaEl = document.getElementById('book-meta');
+          const whyEl = document.getElementById('why-text');
+          const themesEl = document.getElementById('themes-list');
+          const startEl = document.getElementById('start-date');
+          const endEl = document.getElementById('end-date');
+          const liveEl = document.getElementById('live-sessions');
+          const sessionChip = document.getElementById('session-chip');
+          const leaderChip = document.getElementById('leader-chip');
+
+          if (data.title) titleEl.textContent = data.title;
+          const parts = [];
+          if (data.author) parts.push(`By ${data.author}`);
+          if (data.genre) parts.push(data.genre);
+          if (data.pages) parts.push(`${data.pages} pages`);
+          if (data.pace) parts.push(data.pace);
+          if (parts.length) metaEl.textContent = parts.join(' · ');
+          if (data.why) whyEl.textContent = data.why;
+          if (Array.isArray(data.themes) && data.themes.length) {
+            themesEl.innerHTML = data.themes.map(t => `<li>• ${t}</li>`).join('');
+          }
+          if (data.start) startEl.textContent = data.start;
+          if (data.end) endEl.textContent = data.end;
+          if (Array.isArray(data.sessions) && data.sessions.length) {
+            const joined = data.sessions.join(' · ');
+            liveEl.textContent = joined;
+            sessionChip.textContent = `Author Q&A · ${data.sessions[data.sessions.length - 1]}`;
+          }
+          if (data.leader) leaderChip.textContent = `Discussion Leader: ${data.leader}`;
+        } catch (e) {
+          console.warn('Failed to load selection override', e);
+        }
+      })();
+    </script>
+
+    <section class="border-t border-soft-gray bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <h2 class="font-display text-3xl font-semibold">Reading Schedule</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="rounded-3xl border border-soft-gray bg-white p-8 shadow-sm transition hover:-translate-y-1">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Week 1 · Jan 1-7</p>
+            <h3 class="mt-3 font-display text-2xl">Chapters 1-5</h3>
+            <p class="mt-3 text-graphite">Focus on narrative voice, setting, and initial provocations. Discussion questions drop Jan 3.</p>
+            <p class="mt-3 text-sm text-graphite">Live discussion Jan 7 · 8 PM EST</p>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-white p-8 shadow-sm transition hover:-translate-y-1">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Week 2 · Jan 8-14</p>
+            <h3 class="mt-3 font-display text-2xl">Chapters 6-10</h3>
+            <p class="mt-3 text-graphite">Analyze thematic escalation and structural choices. Prompts release Jan 10.</p>
+            <p class="mt-3 text-sm text-graphite">Live discussion Jan 14.</p>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-white p-8 shadow-sm transition hover:-translate-y-1">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Week 3 · Jan 15-21</p>
+            <h3 class="mt-3 font-display text-2xl">Chapters 11-15</h3>
+            <p class="mt-3 text-graphite">Critical turning points, symbolism, and connections to contemporary discourse.</p>
+            <p class="mt-3 text-sm text-graphite">Live discussion Jan 21.</p>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-white p-8 shadow-sm transition hover:-translate-y-1">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Week 4 · Jan 22-31</p>
+            <h3 class="mt-3 font-display text-2xl">Chapters 16-End</h3>
+            <p class="mt-3 text-graphite">Resolution, author Q&A, and synthesis essay. Final prompts Jan 29.</p>
+            <p class="mt-3 text-sm text-graphite">Author Q&A Jan 28 · Final discussion Jan 31.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 class="font-display text-3xl font-semibold">How to Participate</h2>
+            <ol class="mt-6 space-y-5 text-lg text-graphite">
+              <li><span class="font-semibold">1. Obtain the book.</span> Members receive a 20% discount at partner bookstores with code ELIVATE20.</li>
+              <li><span class="font-semibold">2. Download the guide.</span> PDF available immediately with discussion prompts, context notes, and supplementary reading.</li>
+              <li><span class="font-semibold">3. Join discussions.</span> Forums open every Monday and Thursday at 9 AM EST.</li>
+              <li><span class="font-semibold">4. Attend live sessions.</span> Optional but recommended. Recordings remain for 30 days.</li>
+            </ol>
+          </div>
+          <div class="rounded-3xl border border-soft-gray bg-whisper p-10">
+            <h3 class="font-display text-2xl">Quick Facts</h3>
+            <dl class="mt-6 space-y-4 text-graphite">
+              <div class="flex justify-between border-b border-soft-gray pb-4">
+                <dt class="font-semibold">Discussion Leader</dt>
+                <dd>[Moderator Name]</dd>
+              </div>
+              <div class="flex justify-between border-b border-soft-gray pb-4">
+                <dt class="font-semibold">Forums</dt>
+                <dd>Daily, moderated</dd>
+              </div>
+              <div class="flex justify-between border-b border-soft-gray pb-4">
+                <dt class="font-semibold">Recording Access</dt>
+                <dd>30 days</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="font-semibold">Member Polls</dt>
+                <dd>Fridays 12 PM EST</dd>
+              </div>
+            </dl>
+            <a href="membership.html" class="mt-8 inline-flex items-center rounded border border-ink-blue px-6 py-3 font-ui text-sm font-semibold text-ink-blue transition hover:bg-ink-blue hover:text-white">Upgrade for live seats</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 border-t border-stone-gray bg-whisper">
+    <div aria-hidden="true" class="bg-parchment">
+      <svg class="h-8 w-full text-parchment" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 80V0c120 0 120 40 240 40s120-40 240-40 120 40 240 40 120-40 240-40 120 40 240 40 120-40 240-40v80Z" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="mx-auto max-w-6xl px-6 py-12 space-y-8" data-animate>
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl font-semibold">Elivate Book Club</p>
+          <p class="text-sm text-graphite">Reading as an act of future-building.</p>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-graphite">
+          <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+          <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+          <a class="hover:text-ink-blue" href="about.html">About</a>
+          <a class="hover:text-ink-blue" href="events.html">Events</a>
+          <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+          <a class="hover:text-ink-blue" href="trust-and-standards.html">Standards</a>
+          <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+          <a class="hover:text-ink-blue" href="author-support.html">Author Support</a>
+        </nav>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-wrap gap-6 text-sm text-graphite">
+          <a class="hover:text-ink-blue" href="mailto:brand@elivatebookclub.com">Contact us</a>
+          <a class="hover:text-ink-blue" href="mailto:community@elivatebookclub.com">Give feedback</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="X">
+            <span class="sr-only">X</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 5l12 14M6 19L18 5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="YouTube">
+            <span class="sr-only">YouTube</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2.5" y="7" width="19" height="10" rx="3"></rect>
+              <path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+              <path d="M7 10v7M7 7.5v.1M13 10v7m0-4c0-1.5 1-3 3-3s3 1 3 3v4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <span class="inline-flex items-center justify-center rounded-full border border-literary-black px-4 py-1 font-ui text-sm font-semibold">Elivate</span>
+          <p class="text-xs text-graphite">© 2025 Elivate Book Club. All rights reserved.</p>
+          <div class="flex flex-wrap gap-3 text-xs text-ink-blue">
+            <a class="hover:underline" href="trust-and-standards.html">Accessibility</a>
+            <a class="hover:underline" href="resources.html">Resource Hub</a>
+            <a class="hover:underline" href="author-support.html">Author Support</a>
+          </div>
+        </div>
+        <a href="#top" class="inline-flex items-center justify-end gap-2 text-sm font-semibold text-ink-blue">Back to top<span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

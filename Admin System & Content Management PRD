@@ -1,0 +1,80 @@
+# Admin System & Content Management PRD
+
+## 1. Goals
+- Provide a secure `/admin` interface (single-user) to create, edit, and publish site content.
+- Centralize content (text, images, metadata) for core pages: Home, Current Selection, Membership, About, Author Program, Events, Resources, Trust, FAQs, Testimonials.
+- Enforce accessibility and brand guardrails (alt text required, constrained rich text).
+- Trigger site rebuild/ISR on publish so the public site reflects updates quickly.
+
+## 2. Scope
+- **In scope:** Content CRUD, draft/publish, scheduled publish, media upload with alt text, JSON export/import for backup, audit metadata, login/auth for one admin.
+- **Out of scope (v1):** Multi-user roles, WYSIWYG page layout changes, custom domains for admin, analytics dashboards.
+
+## 3. Users & Access
+- **Admin (single user):** Full read/write/publish. Auth via email/password (or SSO if available).
+- Auth enforcement on `/admin`; no anonymous access. API tokens scoped per environment (dev/stage/prod).
+
+## 4. Content Models
+- **Globals:** Nav links, footer links, social links, announcement bar, OG/fav meta.
+- **Homepage:** Hero (headline, subhead, CTAs, bg image), “How it works” cards, current selection teaser, membership teaser, testimonials teaser, events teaser, resources teaser.
+- **Current Selection:** Title, author, genre, pages, pace, start/end dates, themes, why-chosen text, schedule (weeks/dates/chapters/prompts), live sessions, hero image, guide link.
+- **Membership:** Tiers (name, price, billing cadence, features, badge), FAQs, commitments.
+- **About:** Story, founding year, process steps, team roles, values, hero/secondary images.
+- **Author Program:** Hero, stats, thresholds, process steps, comparison rows, packages, ROI data, FAQs, testimonials, compliance statements, CTAs, imagery.
+- **Events:** Title, date/time + tz, location/link, type, description, registration URL, image.
+- **Resources:** Type (guide/toolkit/partner), title, description, link/file, audience tags (educators/libraries/bookstores), image.
+- **Testimonials:** Quote, name, role, category, headshot/cover.
+- **FAQs:** Question, answer, category (Membership/Authors/Trust/etc.).
+- **Trust & Standards:** Policy blocks, moderation steps, privacy bullets, rights.
+- **Author Submissions:** Form fields (title, author, genre, ASIN, synopsis, pages, pub date, package interest), status (submitted/review/accepted/declined), reviewer notes.
+- **Media Library:** File, alt text (required), focal point, tags (page/section/theme), orientation, crop presets.
+
+## 5. Workflows
+- Draft → Publish (with optional schedule).
+- Required alt text on media upload; required fields per model; URL/date validation.
+- JSON export/import for backup and manual rollback.
+- Webhook on publish/unpublish to trigger site rebuild/ISR.
+
+## 6. Editing UI Requirements
+- Form-based editors per model with validation messages.
+- Limited rich text (bold/italic/link/list) to prevent layout drift.
+- Image picker with alt text + focal point; show recommended aspect ratios.
+- Preview snippet for Current Selection (title/meta/themes) and Events.
+- Audit fields: last edited by/at, last published by/at.
+
+## 7. Integration with Frontend
+- Admin served at `/admin` (Vercel) behind auth.
+- Public site consumes published content via API (or JSON export committed to repo as a fallback).
+- Environment-specific API keys stored as Vercel env vars.
+- Graceful fallback if API unavailable (cached content).
+
+## 8. Security
+- HTTPS only; strong password requirements.
+- Optional SSO if available; rate-limit login attempts.
+- Hide admin build artifacts from public; no draft data exposed publicly.
+
+## 9. Performance & Media
+- CDN-backed assets; on-the-fly resizing to WebP/AVIF.
+- Cache headers for published API responses; ISR/rebuild for updates.
+
+## 10. Migration
+- Extract current static content into model-shaped JSON/CSV.
+- Upload/import into admin backend; map images with alt text and tags.
+- QA pass comparing pages vs. source content.
+
+## 11. Non-Functional Requirements
+- Uptime: admin available during business hours; public site resilient to admin downtime.
+- Accessibility: admin UI keyboard-friendly; forms labeled; sufficient contrast.
+- Auditability: retain publish history per entry.
+
+## 12. Open Questions
+- Final choice of backend (headless CMS vs. lightweight custom admin) on Vercel?
+- SSO availability? If not, which auth provider?
+- Do we need scheduled unpublish? (Currently only scheduled publish is required.)
+- Image storage: CMS-managed vs. external bucket?
+
+## 13. Timeline (4-week target)
+- **W1:** Decide backend approach; set up auth; scaffold content models; deploy `/admin` shell on Vercel.
+- **W2:** Build editors for Current Selection, Events, Resources, Membership; media upload with alt enforcement.
+- **W3:** Build editors for About, Author Program, Trust, FAQs, Testimonials; add audit metadata and JSON export/import.
+- **W4:** Wire webhooks to frontend rebuild/ISR; migrate initial content; QA accessibility and publish flow; go-live.

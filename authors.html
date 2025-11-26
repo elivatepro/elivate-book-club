@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Authors | Amazon Review Program · Elivate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'literary-black': '#0A0908',
+            parchment: '#F7F3E9',
+            graphite: '#2C2B28',
+            'ink-blue': '#1E3A5F',
+            'margin-red': '#8B2635',
+            'gold-leaf': '#C9A961',
+            sage: '#6B7F59',
+            'stone-gray': '#B8B5AD',
+            'soft-gray': '#E8E6DC',
+            whisper: '#FAF9F5'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Crimson Pro', 'Georgia', 'serif'],
+            ui: ['Inter', 'system-ui', 'sans-serif']
+          },
+          maxWidth: {
+            reading: '75ch'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {body {@apply bg-parchment text-literary-black font-body antialiased;}}
+    @layer components {
+      .btn {@apply inline-flex items-center justify-center rounded border border-transparent px-6 py-3 font-ui text-sm font-semibold tracking-wide transition-all duration-200 ease-out;}
+      .btn-primary {@apply bg-ink-blue text-white border-ink-blue hover:-translate-y-0.5 hover:bg-[#152d4d];}
+      .btn-secondary {@apply border-2 border-ink-blue text-ink-blue hover:bg-ink-blue hover:text-white;}
+      .pill {@apply inline-flex items-center gap-2 rounded-full border border-soft-gray px-3 py-1 text-xs font-ui uppercase tracking-[0.35em] text-graphite;}
+    }
+  </style>
+  <script defer src="site.js"></script>
+</head>
+<body id="top">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-stone-gray bg-[rgba(250,249,245,0.95)] backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="font-display text-2xl font-semibold tracking-tight">Elivate</a>
+      <nav class="hidden items-center gap-6 font-ui text-sm font-medium text-graphite md:flex">
+        <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+        <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+        <a class="hover:text-ink-blue" href="about.html">About</a>
+        <a class="hover:text-ink-blue" href="events.html">Events</a>
+        <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+        <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+      </nav>
+      <a href="author-support.html" class="btn btn-primary text-xs">Submit Your Book</a>
+    </div>
+  </header>
+
+  <main class="pt-28">
+    <section class="relative overflow-hidden text-white" data-animate style="background-image: linear-gradient(rgba(10,9,8,0.75), rgba(10,9,8,0.8)), url('Images/Man Reading Book.jpg'); background-size: cover; background-position: center;">
+      <div class="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-center lg:justify-between">
+        <div class="space-y-6 max-w-2xl">
+          <p class="pill border-white/30 text-white">For Authors</p>
+          <h1 class="font-display text-4xl font-black leading-tight md:text-5xl">Genuine Readers. Verified Reviews. Measurable Sales Impact.</h1>
+          <p class="text-lg text-white/80">Transform your Amazon presence with reviews from readers who actually finish your book.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="author-support.html" class="btn btn-primary">Submit Your Book</a>
+            <a href="#testimonials" class="btn btn-secondary border-white text-white">See Success Stories</a>
+          </div>
+        </div>
+        <div class="grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur lg:w-96">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-whisper/10 text-center leading-[3rem] text-lg font-semibold text-gold-leaf">A+</div>
+            <div>
+              <p class="text-sm text-white/70">Review quality</p>
+              <p class="text-xl font-semibold">150-300 words avg</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-whisper/10 text-center leading-[3rem] text-lg font-semibold text-gold-leaf">✓</div>
+            <div>
+              <p class="text-sm text-white/70">Verified Purchase</p>
+              <p class="text-xl font-semibold">100% of reviews</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-whisper/10 text-center leading-[3rem] text-lg font-semibold text-gold-leaf">24h</div>
+            <div>
+              <p class="text-sm text-white/70">Support</p>
+              <p class="text-xl font-semibold">Dedicated liaison</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-10">
+        <div class="max-w-reading space-y-4">
+          <p class="pill">The Data: Why Amazon Reviews Matter</p>
+          <p class="font-display text-3xl font-semibold">Visibility on Amazon is review-driven. We build that foundation ethically.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-2xl border border-literary-black p-6">
+            <p class="font-display text-5xl font-black text-ink-blue">+270%</p>
+            <p class="mt-2 text-lg text-graphite">Purchase likelihood with just 5 reviews vs. zero.</p>
+            <p class="mt-3 text-xs text-graphite/70">Source: Northwestern University Spiegel Research Center</p>
+          </div>
+          <div class="rounded-2xl border border-literary-black p-6">
+            <p class="font-display text-5xl font-black text-ink-blue">+26%</p>
+            <p class="mt-2 text-lg text-graphite">Sales increase for every 1-star rating improvement.</p>
+            <p class="mt-3 text-xs text-graphite/70">Source: Amazon Consumer Review Statistics, 2024</p>
+          </div>
+          <div class="rounded-2xl border border-literary-black p-6">
+            <p class="font-display text-5xl font-black text-ink-blue">88%</p>
+            <p class="mt-2 text-lg text-graphite">Correlation between review count and sales velocity.</p>
+            <p class="mt-3 text-xs text-graphite/70">Source: Independent publisher analysis, 2023</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <p class="font-display text-2xl font-semibold">Critical thresholds</p>
+          <div class="space-y-4">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between text-sm font-semibold text-graphite"><span>5-15 Reviews</span><span>Credibility</span></div>
+              <div class="h-3 w-full rounded-full bg-soft-gray">
+                <div class="h-3 w-[35%] rounded-full bg-gradient-to-r from-margin-red to-ink-blue"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between text-sm font-semibold text-graphite"><span>50+ Reviews</span><span>Competitive</span></div>
+              <div class="h-3 w-full rounded-full bg-soft-gray">
+                <div class="h-3 w-[70%] rounded-full bg-gradient-to-r from-margin-red to-ink-blue"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between text-sm font-semibold text-graphite"><span>100+ Reviews</span><span>Authority</span></div>
+              <div class="h-3 w-full rounded-full bg-soft-gray">
+                <div class="h-3 w-[95%] rounded-full bg-gradient-to-r from-margin-red to-ink-blue"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-10">
+        <div class="max-w-reading space-y-3">
+          <p class="pill">Process</p>
+          <p class="font-display text-3xl font-semibold">Six steps from submission to visible, verified reviews.</p>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div class="process-timeline space-y-5">
+            <div class="process-card">
+              <span class="process-badge">1</span>
+              <p class="process-title">Submit</p>
+              <p class="process-copy">Share ASIN, audience, and sample chapter.</p>
+            </div>
+            <div class="process-card">
+              <span class="process-badge">2</span>
+              <p class="process-title">Review</p>
+              <p class="process-copy">Editorial vetting for merit and fit.</p>
+            </div>
+            <div class="process-card">
+              <span class="process-badge">3</span>
+              <p class="process-title">Match</p>
+              <p class="process-copy">Genre-aligned readers with strong accounts.</p>
+            </div>
+            <div class="process-card">
+              <span class="process-badge">4</span>
+              <p class="process-title">Purchase</p>
+              <p class="process-copy">Full-price Amazon buys for Verified Purchase.</p>
+            </div>
+            <div class="process-card">
+              <span class="process-badge">5</span>
+              <p class="process-title">Read</p>
+              <p class="process-copy">Complete read-through, not skims.</p>
+            </div>
+            <div class="process-card">
+              <span class="process-badge">6</span>
+              <p class="process-title">Review</p>
+              <p class="process-copy">Honest, detailed Amazon reviews posted.</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="overflow-hidden rounded-3xl border border-soft-gray bg-white shadow-sm">
+              <img src="Images/Man Woman Reading Book.jpg" alt="Readers engaged with a book" class="h-full w-full object-cover" />
+            </div>
+            <div class="rounded-2xl border border-soft-gray bg-white p-5 shadow-sm">
+              <p class="italic text-graphite">“Every step felt rigorous and transparent. The verified reviews landed exactly when promised.”</p>
+              <p class="mt-3 text-sm font-semibold text-graphite">Featured Author · Q&A alumnus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-8">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="pill">Why Elivate</p>
+            <p class="font-display text-3xl font-semibold">Quality over volume, compliance over risk.</p>
+          </div>
+          <p class="text-sm text-graphite max-w-lg">We compensate for reading time—not for reviews—and we never guarantee positivity. Verified Purchase is non-negotiable.</p>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-soft-gray bg-parchment shadow-sm">
+          <table class="min-w-full text-left text-sm">
+            <thead class="bg-whisper">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Criterion</th>
+                <th class="px-4 py-3 font-semibold">Other Services</th>
+                <th class="px-4 py-3 font-semibold">Elivate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-soft-gray">
+                <td class="px-4 py-3">Review authenticity</td>
+                <td class="px-4 py-3 text-margin-red">✗ Incentivized praise</td>
+                <td class="px-4 py-3 text-ink-blue">✓ Genuine engagement</td>
+              </tr>
+              <tr class="border-t border-soft-gray bg-white/60">
+                <td class="px-4 py-3">Verified Purchase</td>
+                <td class="px-4 py-3 text-margin-red">✗ Bypassed</td>
+                <td class="px-4 py-3 text-ink-blue">✓ 100% verified</td>
+              </tr>
+              <tr class="border-t border-soft-gray">
+                <td class="px-4 py-3">Reader completion</td>
+                <td class="px-4 py-3 text-margin-red">✗ Skims common</td>
+                <td class="px-4 py-3 text-ink-blue">✓ Full read</td>
+              </tr>
+              <tr class="border-t border-soft-gray bg-white/60">
+                <td class="px-4 py-3">Amazon TOS</td>
+                <td class="px-4 py-3 text-margin-red">⚠ Risk of violation</td>
+                <td class="px-4 py-3 text-ink-blue">✓ Fully compliant</td>
+              </tr>
+              <tr class="border-t border-soft-gray">
+                <td class="px-4 py-3">Review quality</td>
+                <td class="px-4 py-3 text-margin-red">✗ Generic</td>
+                <td class="px-4 py-3 text-ink-blue">✓ 150-300 words avg</td>
+              </tr>
+              <tr class="border-t border-soft-gray bg-white/60">
+                <td class="px-4 py-3">Editorial curation</td>
+                <td class="px-4 py-3 text-margin-red">✗ Pay-to-play</td>
+                <td class="px-4 py-3 text-ink-blue">✓ Merit-based</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-8">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="pill">Packages</p>
+            <p class="font-display text-3xl font-semibold">Choose the momentum you need.</p>
+          </div>
+          <p class="text-sm text-graphite max-w-lg">All packages include editorial review, reader matching, verified purchases at full price, and detailed reporting.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl border border-soft-gray bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-graphite">Standard</p>
+            <p class="mt-2 text-3xl font-display">$150</p>
+            <p class="text-sm text-graphite">5 Verified Reviews · 1-2 weeks</p>
+            <ul class="mt-4 space-y-2 text-graphite">
+              <li>For new releases building credibility</li>
+              <li>Reader stipends included</li>
+              <li>Weekly progress updates</li>
+            </ul>
+            <a href="author-support.html" class="mt-6 btn btn-secondary w-full justify-center">Select Standard</a>
+          </article>
+          <article class="rounded-3xl border-2 border-ink-blue bg-white p-6 shadow-lg">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-graphite">Momentum</p>
+              <span class="rounded-full bg-ink-blue px-3 py-1 text-xs font-semibold text-white">Most Popular</span>
+            </div>
+            <p class="mt-2 text-3xl font-display">$275</p>
+            <p class="text-sm text-graphite">10 Verified Reviews · 2-3 weeks</p>
+            <ul class="mt-4 space-y-2 text-graphite">
+              <li>Targets competitive threshold (40-50 reviews)</li>
+              <li>Optimized reader matching</li>
+              <li>Mid-campaign check-in</li>
+            </ul>
+            <a href="author-support.html" class="mt-6 btn btn-primary w-full justify-center">Select Momentum</a>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-graphite">Authority</p>
+            <p class="mt-2 text-3xl font-display">$500</p>
+            <p class="text-sm text-graphite">20 Verified Reviews · 4-6 weeks</p>
+            <ul class="mt-4 space-y-2 text-graphite">
+              <li>Push toward category dominance (100+ reviews)</li>
+              <li>Priority reader allocation</li>
+              <li>Extended monitoring & reporting</li>
+            </ul>
+            <a href="author-support.html" class="mt-6 btn btn-secondary w-full justify-center">Select Authority</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-4">
+          <p class="pill">ROI Model</p>
+          <p class="font-display text-3xl font-semibold">Transparent expectations and conservative math.</p>
+          <div class="space-y-4 rounded-3xl border border-soft-gray bg-whisper p-6">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-ink-blue/10 text-center leading-10 font-semibold text-ink-blue">$</div>
+              <div>
+                <p class="text-sm font-semibold text-graphite">Investment</p>
+                <p class="text-lg">$275 (Momentum package)</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-ink-blue/10 text-center leading-10 font-semibold text-ink-blue">10</div>
+              <div>
+                <p class="text-sm font-semibold text-graphite">Verified Reviews</p>
+                <p class="text-lg">Delivered over 6-8 weeks</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gold-leaf/20 text-center leading-10 font-semibold text-ink-blue">+20</div>
+              <div>
+                <p class="text-sm font-semibold text-graphite">Additional sales/month</p>
+                <p class="text-lg">Conservative scenario at $4.99</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-margin-red/10 text-center leading-10 font-semibold text-ink-blue">204%</div>
+              <div>
+                <p class="text-sm font-semibold text-graphite">12-month ROI</p>
+                <p class="text-lg">4-month payback assuming steady traffic</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-graphite">Results vary by cover, pricing, description, and category competitiveness. Reviews are a multiplier, not a substitute for fundamentals.</p>
+        </div>
+        <div class="rounded-3xl border border-soft-gray bg-white p-6 shadow-sm">
+          <p class="font-display text-2xl font-semibold">Projected conversion lift</p>
+          <p class="text-sm text-graphite">Illustrative improvement as review count increases.</p>
+          <div class="relative mt-6 h-64 w-full rounded-2xl bg-gradient-to-b from-whisper to-white p-4">
+            <div class="absolute inset-4">
+              <svg viewBox="0 0 300 200" class="h-full w-full" role="img" aria-label="Conversion rate vs number of reviews">
+                <defs>
+                  <linearGradient id="lineGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+                    <stop offset="0%" stop-color="#8B2635" stop-opacity="0.7" />
+                    <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0.9" />
+                  </linearGradient>
+                </defs>
+                <polyline points="0,180 60,150 120,110 180,75 240,45 300,30" fill="none" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round" />
+                <g fill="#1E3A5F">
+                  <circle cx="60" cy="150" r="4" /><circle cx="120" cy="110" r="4" /><circle cx="180" cy="75" r="4" /><circle cx="240" cy="45" r="4" />
+                </g>
+                <text x="0" y="195" font-size="10" fill="#2C2B28">0</text>
+                <text x="55" y="195" font-size="10" fill="#2C2B28">5</text>
+                <text x="115" y="195" font-size="10" fill="#2C2B28">10</text>
+                <text x="175" y="195" font-size="10" fill="#2C2B28">20</text>
+                <text x="235" y="195" font-size="10" fill="#2C2B28">40</text>
+                <text x="0" y="15" font-size="10" fill="#2C2B28">Conversion Rate</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 grid gap-10 lg:grid-cols-2">
+        <div class="space-y-4">
+          <p class="pill">FAQs</p>
+          <p class="font-display text-3xl font-semibold">Straight answers about compliance and results.</p>
+        </div>
+        <div class="space-y-3">
+          <details class="rounded-2xl border border-soft-gray bg-white p-5">
+            <summary class="cursor-pointer font-ui text-sm font-semibold text-graphite">Are reviews guaranteed to be positive?</summary>
+            <p class="mt-3 text-sm text-graphite">No. We encourage honest feedback. We pre-screen for quality and match appreciative readers; historical data shows ~85% 4-5 stars.</p>
+          </details>
+          <details class="rounded-2xl border border-soft-gray bg-white p-5">
+            <summary class="cursor-pointer font-ui text-sm font-semibold text-graphite">Does this violate Amazon TOS?</summary>
+            <p class="mt-3 text-sm text-graphite">No. Readers buy at full price for Verified Purchase, stipends are for time, and we never request positive ratings. All language is compliance-checked.</p>
+          </details>
+          <details class="rounded-2xl border border-soft-gray bg-white p-5">
+            <summary class="cursor-pointer font-ui text-sm font-semibold text-graphite">How fast do reviews post?</summary>
+            <p class="mt-3 text-sm text-graphite">4-12 weeks depending on package size. Effects on conversion typically appear after the first 5-10 reviews.</p>
+          </details>
+          <details class="rounded-2xl border border-soft-gray bg-white p-5">
+            <summary class="cursor-pointer font-ui text-sm font-semibold text-graphite">Can I pick the readers?</summary>
+            <p class="mt-3 text-sm text-graphite">No. We match based on genre interest, history, and account health to keep results authentic and compliant.</p>
+          </details>
+          <details class="rounded-2xl border border-soft-gray bg-white p-5">
+            <summary class="cursor-pointer font-ui text-sm font-semibold text-graphite">What if results are weak?</summary>
+            <p class="mt-3 text-sm text-graphite">Reviews amplify strong fundamentals. We’ll flag issues (cover, description, pricing) and can advise on optimizations.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-6">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="pill">Testimonials</p>
+            <p class="font-display text-3xl font-semibold">What authors are saying.</p>
+          </div>
+          <p class="text-sm text-graphite max-w-lg">Thoughtful, specific reviews from readers who finish the book.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl border border-soft-gray bg-parchment p-6 shadow-sm">
+            <p class="text-lg italic text-graphite">“15 verified reviews later, I’m seeing consistent daily sales and landed a bookstore event.”</p>
+            <p class="mt-4 text-sm font-semibold text-graphite">Sarah Chen · Contemporary Fiction</p>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-parchment p-6 shadow-sm">
+            <p class="text-lg italic text-graphite">“These readers actually finished my book and wrote specific, useful feedback—rare on Amazon.”</p>
+            <p class="mt-4 text-sm font-semibold text-graphite">Marcus Williams · Historical Non-Fiction</p>
+          </article>
+          <article class="rounded-3xl border border-soft-gray bg-parchment p-6 shadow-sm">
+            <p class="text-lg italic text-graphite">“Transparency and compliance were key for me. Verified purchases made all the difference.”</p>
+            <p class="mt-4 text-sm font-semibold text-graphite">Jennifer Torres · Mystery/Thriller</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16 space-y-6">
+        <p class="pill">Compliance</p>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="rounded-3xl border border-soft-gray bg-white p-6 shadow-sm">
+            <p class="font-display text-2xl font-semibold">Amazon TOS alignment</p>
+            <ul class="mt-4 space-y-2 text-graphite">
+              <li>Full-price, Verified Purchase buys only</li>
+              <li>Stipends are for reading time, not ratings</li>
+              <li>No guaranteed positivity—honest reviews encouraged</li>
+              <li>Transparent communication to authors and readers</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-soft-gray bg-white p-6 shadow-sm">
+            <p class="font-display text-2xl font-semibold">Our commitments</p>
+            <ul class="mt-4 space-y-2 text-graphite">
+              <li>Editorial independence; no pay-to-play selections</li>
+              <li>Reader training on helpful, specific reviews</li>
+              <li>Documented safeguards reviewed by counsel</li>
+              <li>Weekly reporting during your campaign</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="rounded-3xl border border-soft-gray bg-whisper p-10 shadow-sm">
+          <p class="font-display text-3xl font-semibold">Ready to discuss your book?</p>
+          <p class="mt-3 text-lg text-graphite">Submit your book for editorial review or schedule a consultation to see if the program is right for you.</p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="author-support.html" class="btn btn-primary">Submit Your Book</a>
+            <a href="mailto:authors@elivatebookclub.com" class="btn btn-secondary">Email the team</a>
+          </div>
+          <form class="mt-8 grid gap-4 sm:grid-cols-[2fr_1fr]">
+            <label class="sr-only" for="author-email">Author email</label>
+            <input id="author-email" type="email" placeholder="Your email for author newsletter" class="w-full rounded border border-soft-gray bg-white px-4 py-3 text-sm focus:border-ink-blue focus:outline-none" />
+            <button type="button" class="btn btn-primary w-full justify-center sm:w-auto">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 border-t border-stone-gray bg-whisper">
+    <div aria-hidden="true" class="bg-parchment">
+      <svg class="h-8 w-full text-parchment" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 80V0c120 0 120 40 240 40s120-40 240-40 120 40 240 40 120-40 240-40 120 40 240 40 120-40 240-40v80Z" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="mx-auto max-w-6xl px-6 py-12 space-y-8" data-animate>
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl font-semibold">Elivate Book Club</p>
+          <p class="text-sm text-graphite">Reading as an act of future-building.</p>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-graphite">
+          <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+          <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+          <a class="hover:text-ink-blue" href="about.html">About</a>
+          <a class="hover:text-ink-blue" href="events.html">Events</a>
+          <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+          <a class="hover:text-ink-blue" href="trust-and-standards.html">Standards</a>
+          <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+        </nav>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-wrap gap-6 text-sm text-graphite">
+          <a class="hover:text-ink-blue" href="mailto:brand@elivatebookclub.com">Contact us</a>
+          <a class="hover:text-ink-blue" href="mailto:community@elivatebookclub.com">Give feedback</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="X">
+            <span class="sr-only">X</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 5l12 14M6 19L18 5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="YouTube">
+            <span class="sr-only">YouTube</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2.5" y="7" width="19" height="10" rx="3"></rect>
+              <path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+              <path d="M7 10v7M7 7.5v.1M13 10v7m0-4c0-1.5 1-3 3-3s3 1 3 3v4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <span class="inline-flex items-center justify-center rounded-full border border-literary-black px-4 py-1 font-ui text-sm font-semibold">Elivate</span>
+          <p class="text-xs text-graphite">© 2025 Elivate Book Club. All rights reserved.</p>
+          <div class="flex flex-wrap gap-3 text-xs text-ink-blue">
+            <a class="hover:underline" href="trust-and-standards.html">Accessibility</a>
+            <a class="hover:underline" href="resources.html">Resource Hub</a>
+            <a class="hover:underline" href="author-support.html">Author Support</a>
+          </div>
+        </div>
+        <a href="#top" class="inline-flex items-center justify-end gap-2 text-sm font-semibold text-ink-blue">Back to top<span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elivate Brand Guidelines - Visual Reference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'literary-black': '#0A0908',
+                        parchment: '#F7F3E9',
+                        graphite: '#2C2B28',
+                        'ink-blue': '#1E3A5F',
+                        'margin-red': '#8B2635',
+                        'gold-leaf': '#C9A961',
+                        sage: '#6B7F59',
+                        'stone-gray': '#B8B5AD',
+                        'soft-gray': '#E8E6DC',
+                        whisper: '#FAF9F5'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                        body: ['Crimson Pro', 'Georgia', 'serif'],
+                        ui: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    maxWidth: {
+                        reading: '75ch'
+                    },
+                    boxShadow: {
+                        card: '0 15px 45px rgba(10, 9, 8, 0.08)'
+                    }
+                }
+            }
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-parchment text-literary-black font-body antialiased;
+            }
+        }
+
+        @layer components {
+            .btn {
+                @apply inline-flex items-center justify-center rounded border border-transparent px-6 py-3 font-ui text-sm font-semibold tracking-wider transition-colors duration-200;
+            }
+
+            .btn-primary {
+                @apply bg-ink-blue text-white border-ink-blue hover:bg-[#152d4d];
+            }
+
+            .btn-secondary {
+                @apply border-2 border-ink-blue text-ink-blue hover:bg-ink-blue hover:text-white;
+            }
+
+            .color-swatch {
+                @apply rounded-2xl border border-soft-gray bg-white shadow-sm overflow-hidden;
+            }
+
+            .color-preview {
+                @apply flex h-32 items-center justify-center font-ui text-2xl font-semibold text-white;
+            }
+
+            .type-example {
+                @apply rounded-2xl border border-soft-gray bg-white p-8 shadow-sm;
+            }
+
+            .example-label {
+                @apply font-ui text-[11px] uppercase tracking-[0.35em] text-graphite;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-stone-gray bg-[rgba(250,249,245,0.95)] backdrop-blur">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+            <a href="#brand" class="font-display text-2xl font-semibold tracking-tight">Elivate</a>
+            <ul class="hidden items-center gap-8 font-ui text-sm font-medium text-graphite md:flex">
+                <li><a class="hover:text-ink-blue" href="#brand">Brand</a></li>
+                <li><a class="hover:text-ink-blue" href="#colors">Colors</a></li>
+                <li><a class="hover:text-ink-blue" href="#typography">Typography</a></li>
+                <li><a class="hover:text-ink-blue" href="#components">Components</a></li>
+                <li><a class="hover:text-ink-blue" href="#voice">Voice</a></li>
+            </ul>
+            <a href="#voice" class="btn btn-secondary text-xs md:hidden">Guidelines</a>
+        </div>
+    </nav>
+
+    <main class="mt-28 pb-20">
+        <div class="mx-auto max-w-6xl px-6">
+            <section id="brand" class="border-b border-soft-gray py-16">
+                <p class="font-display text-4xl font-black leading-tight text-literary-black md:text-5xl">
+                    Brand Guidelines
+                </p>
+                <p class="mt-6 max-w-reading text-xl leading-relaxed text-graphite">
+                    Elivate represents the elevation of thought, culture, and human potential through reading. These guidelines ensure consistency across all touchpoints while maintaining our commitment to literary excellence and cultural integrity.
+                </p>
+                <div class="mt-10 rounded-2xl border-l-4 border-ink-blue bg-whisper p-8 shadow-sm">
+                    <h3 class="font-display text-2xl font-semibold text-ink-blue">Core Identity</h3>
+                    <p class="mt-4 text-lg leading-8"><span class="font-semibold">Mission:</span> Build a global literary culture rooted in curiosity, integrity, and meaningful conversation.</p>
+                    <p class="mt-2 text-lg leading-8"><span class="font-semibold">Vision:</span> A world where reading communities shape culture instead of reacting to it.</p>
+                </div>
+            </section>
+
+            <section id="colors" class="border-b border-soft-gray py-16">
+                <h2 class="font-display text-4xl font-semibold tracking-tight text-literary-black">Color Palette</h2>
+                <p class="mt-4 max-w-reading text-lg leading-8 text-graphite">
+                    Our colors evoke the timeless quality of great literature—ink on paper, aged manuscripts, and the quiet spaces where reading transforms thought.
+                </p>
+
+                <h3 class="mt-10 font-display text-2xl font-semibold">Primary Colors</h3>
+                <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="color-swatch">
+                        <div class="color-preview bg-literary-black">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Literary Black</p>
+                            <p class="font-mono text-sm text-graphite">#0A0908</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-parchment text-literary-black">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Parchment</p>
+                            <p class="font-mono text-sm text-graphite">#F7F3E9</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-graphite">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Graphite</p>
+                            <p class="font-mono text-sm text-graphite">#2C2B28</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-12 font-display text-2xl font-semibold">Accent Colors</h3>
+                <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="color-swatch">
+                        <div class="color-preview bg-ink-blue">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Ink Blue</p>
+                            <p class="font-mono text-sm text-graphite">#1E3A5F</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-margin-red">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Margin Red</p>
+                            <p class="font-mono text-sm text-graphite">#8B2635</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-gold-leaf text-literary-black">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Gold Leaf</p>
+                            <p class="font-mono text-sm text-graphite">#C9A961</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-sage">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Sage</p>
+                            <p class="font-mono text-sm text-graphite">#6B7F59</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-12 font-display text-2xl font-semibold">Neutral Tones</h3>
+                <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="color-swatch">
+                        <div class="color-preview bg-stone-gray">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Stone Gray</p>
+                            <p class="font-mono text-sm text-graphite">#B8B5AD</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-soft-gray text-literary-black">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Soft Gray</p>
+                            <p class="font-mono text-sm text-graphite">#E8E6DC</p>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview bg-whisper text-literary-black">Aa</div>
+                        <div class="p-5 font-ui">
+                            <p class="text-sm font-semibold uppercase tracking-wide text-graphite">Whisper</p>
+                            <p class="font-mono text-sm text-graphite">#FAF9F5</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="typography" class="border-b border-soft-gray py-16">
+                <h2 class="font-display text-4xl font-semibold tracking-tight">Typography</h2>
+                <p class="mt-4 max-w-reading text-lg leading-8 text-graphite">
+                    Our typographic system balances literary tradition with digital clarity, ensuring optimal readability across all contexts.
+                </p>
+
+                <div class="mt-10 grid gap-8 md:grid-cols-2">
+                    <div class="type-example">
+                        <p class="example-label">Display Type — Playfair Display</p>
+                        <p class="mt-4 font-display text-5xl font-black leading-tight">The Elevation of Thought</p>
+                        <p class="mt-4 font-ui text-sm text-graphite">Used for headlines, book titles, and hero text. Weights: 400 / 700 / 900.</p>
+                    </div>
+                    <div class="type-example">
+                        <p class="example-label">Body Type — Crimson Pro</p>
+                        <p class="mt-4 text-lg leading-8">
+                            In a world saturated with algorithmic recommendations and commercial book lists, Elivate emerges as a corrective force—a space where reading is treated as a serious, life-shaping endeavor.
+                        </p>
+                        <p class="mt-4 font-ui text-sm text-graphite">Optimized for long-form reading. Weights: 400 / 500 / 600.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 type-example">
+                    <p class="example-label">Interface Type — Inter</p>
+                    <div class="mt-4 space-y-2 font-ui">
+                        <p class="font-normal">Regular: Navigation, labels, metadata</p>
+                        <p class="font-medium">Medium: Emphasis, subheadings</p>
+                        <p class="font-semibold">SemiBold: Buttons, important UI elements</p>
+                        <p class="font-bold">Bold: Headers, strong emphasis</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="components" class="border-b border-soft-gray py-16">
+                <h2 class="font-display text-4xl font-semibold tracking-tight">Components</h2>
+                <p class="mt-4 max-w-reading text-lg leading-8 text-graphite">
+                    Our component library maintains consistency while allowing flexibility for various content types and user interactions.
+                </p>
+
+                <div class="mt-10 grid gap-8 lg:grid-cols-2">
+                    <div class="type-example space-y-6">
+                        <p class="example-label">Buttons</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="btn btn-primary">Primary Action</button>
+                            <button class="btn btn-secondary">Secondary Action</button>
+                        </div>
+                        <p class="text-sm text-graphite">Primary buttons use Ink Blue backgrounds with 10% darker hover state. Secondary buttons use transparent fills with 2px borders.</p>
+                    </div>
+                    <div class="type-example space-y-4">
+                        <p class="example-label">Card Layout</p>
+                        <h3 class="font-display text-2xl font-semibold">January Selection Preview</h3>
+                        <p class="text-sm font-ui uppercase tracking-widest text-graphite">Literary Fiction · 352 pages</p>
+                        <p class="text-lg leading-8 text-graphite">Structured summaries, historical context, and discussion prompts keep members aligned week by week.</p>
+                        <a class="btn btn-primary w-fit" href="#">View Guide</a>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid gap-8 rounded-2xl border border-soft-gray bg-white p-8 shadow-sm lg:grid-cols-[200px_minmax(0,1fr)]">
+                    <div class="flex h-64 w-full items-center justify-center rounded-lg bg-soft-gray font-ui text-sm text-graphite">Book Cover Placeholder</div>
+                    <div>
+                        <p class="example-label text-ink-blue">Feature Layout</p>
+                        <h3 class="mt-4 font-display text-3xl font-semibold">The Architecture of Attention</h3>
+                        <p class="font-ui text-base text-graphite">Author Name • Literary Non-fiction</p>
+                        <p class="mt-4 text-lg leading-8">
+                            Structured analysis paired with lived experience, challenging readers to reconsider fundamental assumptions about knowledge, meaning, and the nature of understanding itself.
+                        </p>
+                        <button class="mt-6 btn btn-primary">Start Reading</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="voice" class="py-16">
+                <h2 class="font-display text-4xl font-semibold tracking-tight">Voice &amp; Tone</h2>
+                <p class="mt-4 max-w-reading text-lg leading-8 text-graphite">
+                    Our voice is intelligent, direct, and culturally grounded—serious without being rigid, precise without unnecessary ornamentation.
+                </p>
+
+                <h3 class="mt-10 font-display text-2xl font-semibold">Messaging Principles</h3>
+                <div class="mt-6 grid gap-6 md:grid-cols-2">
+                    <div class="rounded-2xl border border-sage bg-[rgba(107,127,89,0.1)] p-6">
+                        <p class="example-label text-sage">✓ Do</p>
+                        <p class="mt-4"><span class="font-semibold">Clear and Direct:</span> "Join a community of serious readers."</p>
+                        <p class="mt-4"><span class="font-semibold">Intellectually Honest:</span> "We select books that challenge and expand thinking."</p>
+                        <p class="mt-4"><span class="font-semibold">Culturally Aware:</span> "Literature shapes culture. We shape how literature is read."</p>
+                    </div>
+                    <div class="rounded-2xl border border-margin-red bg-[rgba(139,38,53,0.1)] p-6">
+                        <p class="example-label text-margin-red">✗ Don't</p>
+                        <p class="mt-4"><span class="font-semibold">Hyperbolic:</span> "The most amazing book club ever!"</p>
+                        <p class="mt-4"><span class="font-semibold">Condescending:</span> "For those smart enough to appreciate real literature."</p>
+                        <p class="mt-4"><span class="font-semibold">Marketing Speak:</span> "Optimize your reading journey with our AI-powered recommendations!"</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-10 font-display text-2xl font-semibold">Positioning Statements</h3>
+                <div class="mt-6 rounded-2xl border-l-4 border-ink-blue bg-whisper p-8 shadow-sm">
+                    <h4 class="font-display text-xl font-semibold text-ink-blue">Primary Message</h4>
+                    <p class="mt-4 text-2xl font-display font-semibold">"We don't just read. We rethink culture."</p>
+                </div>
+
+                <div class="mt-8">
+                    <h4 class="font-ui text-lg font-semibold uppercase tracking-[0.4em] text-graphite">Supporting Lines</h4>
+                    <ul class="mt-4 space-y-2 text-lg leading-8 text-graphite">
+                        <li>• Less noise. More signal.</li>
+                        <li>• Where writers meet the readers who actually care.</li>
+                        <li>• Books are blueprints for the future. We study them accordingly.</li>
+                        <li>• Reading as an act of future-building.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="mt-10 border-y border-stone-gray py-10 text-center font-display text-2xl italic text-graphite">
+                "These guidelines are living documents. Like the books we read, they evolve with understanding and remain open to thoughtful revision."
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-stone-gray bg-whisper py-10 text-center font-ui text-sm text-graphite">
+        <p>© 2025 Elivate Book Club. All rights reserved.</p>
+        <p class="mt-1">Version 1.0 | November 2025</p>
+    </footer>
+</body>
+</html>

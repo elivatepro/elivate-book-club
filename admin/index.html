@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elivate CMS Admin (Placeholder)</title>
+  <style>
+    :root {
+      --ink-blue: #1E3A5F;
+      --parchment: #F7F3E9;
+      --literary-black: #0A0908;
+      --soft-gray: #E8E6DC;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      background: var(--parchment);
+      color: var(--literary-black);
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card { width: 100%; max-width: 720px; background: white; border: 1px solid var(--soft-gray); border-radius: 16px; padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      margin: 0 0 12px 0;
+    }
+    p { margin: 0 0 12px 0; line-height: 1.6; }
+    .label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #555; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--ink-blue);
+      background: var(--ink-blue);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+    .note { font-size: 13px; color: #444; background: var(--parchment); padding: 12px; border-radius: 10px; border: 1px solid var(--soft-gray); }
+    code { font-size: 13px; background: #f3f2ed; padding: 2px 6px; border-radius: 6px; }
+    form { display: grid; gap: 12px; margin-top: 12px; }
+    label { font-size: 13px; font-weight: 600; color: #222; }
+    input, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--soft-gray); border-radius: 10px; font-size: 14px; }
+    textarea { min-height: 80px; resize: vertical; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="label">Admin</div>
+    <h1>Elivate Content Editor</h1>
+    <p>Lightweight, single-user editor that stores Current Selection content in your browser (localStorage). Update fields and click “Save to Browser”. The public page will read these overrides if present. For permanent changes, export JSON and commit it to your repo.</p>
+
+    <form id="selection-form">
+      <label>Book Title <input name="title" required /></label>
+      <label>Author <input name="author" required /></label>
+      <label>Genre <input name="genre" /></label>
+      <label>Pages <input name="pages" type="number" /></label>
+      <label>Pace <input name="pace" placeholder="e.g., ~40 pages/week" /></label>
+      <label>Start Date <input name="start" /></label>
+      <label>End Date <input name="end" /></label>
+      <label>Live Sessions (comma-separated) <input name="sessions" placeholder="Jan 7, Jan 14, Jan 21, Jan 28, Jan 31" /></label>
+      <label>Why We Chose It <textarea name="why"></textarea></label>
+      <label>Themes (one per line) <textarea name="themes"></textarea></label>
+      <div class="actions">
+        <button type="button" class="btn" id="save">Save to Browser</button>
+        <button type="button" class="btn" id="export">Export JSON</button>
+        <span class="note" id="status">Not saved</span>
+      </div>
+    </form>
+
+    <p class="note">Browser-stored content overrides are local to you. To persist for everyone, export JSON and replace the default data in code or move to a real CMS later.</p>
+    <a class="btn" href="/">Back to site</a>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'elivate-current-selection';
+    const form = document.getElementById('selection-form');
+    const statusEl = document.getElementById('status');
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        form.title.value = data.title || '';
+        form.author.value = data.author || '';
+        form.genre.value = data.genre || '';
+        form.pages.value = data.pages || '';
+        form.pace.value = data.pace || '';
+        form.start.value = data.start || '';
+        form.end.value = data.end || '';
+        form.sessions.value = (data.sessions || []).join(', ');
+        form.why.value = data.why || '';
+        form.themes.value = (data.themes || []).join('\\n');
+        statusEl.textContent = 'Loaded from browser';
+      } catch (e) {
+        statusEl.textContent = 'Error loading data';
+      }
+    }
+
+    function save() {
+      const data = {
+        title: form.title.value.trim(),
+        author: form.author.value.trim(),
+        genre: form.genre.value.trim(),
+        pages: form.pages.value.trim(),
+        pace: form.pace.value.trim(),
+        start: form.start.value.trim(),
+        end: form.end.value.trim(),
+        sessions: form.sessions.value.split(',').map(s => s.trim()).filter(Boolean),
+        why: form.why.value.trim(),
+        themes: form.themes.value.split('\\n').map(s => s.trim()).filter(Boolean),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      statusEl.textContent = 'Saved to browser';
+    }
+
+    function exportJson() {
+      const data = localStorage.getItem(STORAGE_KEY) || '{}';
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'current-selection.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('save').addEventListener('click', save);
+    document.getElementById('export').addEventListener('click', exportJson);
+    load();
+  </script>
+</body>
+</html>

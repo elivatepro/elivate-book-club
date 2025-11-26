@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elivate Book Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'literary-black': '#0A0908',
+            parchment: '#F7F3E9',
+            graphite: '#2C2B28',
+            'ink-blue': '#1E3A5F',
+            'margin-red': '#8B2635',
+            'gold-leaf': '#C9A961',
+            sage: '#6B7F59',
+            'stone-gray': '#B8B5AD',
+            'soft-gray': '#E8E6DC',
+            whisper: '#FAF9F5'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Crimson Pro', 'Georgia', 'serif'],
+            ui: ['Inter', 'system-ui', 'sans-serif']
+          },
+          maxWidth: {
+            reading: '75ch'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {@apply bg-parchment text-literary-black font-body antialiased;}
+      ::selection {@apply bg-ink-blue text-white;}
+    }
+    @layer components {
+      .btn {@apply inline-flex items-center justify-center rounded border border-transparent px-6 py-3 font-ui text-sm font-semibold tracking-wide transition-all duration-200 ease-out;}
+      .btn-primary {@apply bg-ink-blue text-white border-ink-blue hover:-translate-y-0.5 hover:bg-[#152d4d];}
+      .btn-secondary {@apply border-2 border-ink-blue text-ink-blue hover:bg-ink-blue hover:text-white;}
+      .card {@apply rounded-2xl border border-soft-gray bg-white p-8 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-out;}
+    }
+  </style>
+  <script defer src="site.js"></script>
+</head>
+<body id="top" class="min-h-screen">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-stone-gray bg-[rgba(250,249,245,0.95)] backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="font-display text-2xl font-semibold tracking-tight">Elivate</a>
+      <nav class="hidden items-center gap-6 font-ui text-sm font-medium text-graphite md:flex">
+        <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+        <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+        <a class="hover:text-ink-blue" href="about.html">About</a>
+        <a class="hover:text-ink-blue" href="events.html">Events</a>
+        <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+        <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+      </nav>
+            <a href="membership.html" class="btn btn-primary text-xs" data-waitlist="true">Join the Club</a>
+    </div>
+  </header>
+
+  <main class="pt-28">
+    <section class="relative overflow-hidden bg-whisper" data-animate>
+      <div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2">
+        <div class="space-y-6">
+          <p class="font-display text-4xl font-black leading-tight md:text-5xl">A book club for readers who demand substance.</p>
+          <p class="max-w-reading text-xl leading-relaxed text-graphite">One carefully selected title each month. Structured reading plans. Live discussions with authors and members who treat literature as culture-building work.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="current-selection.html" class="btn btn-primary">Explore January Selection</a>
+            <a href="about.html" class="btn btn-secondary">How Elivate Works</a>
+          </div>
+          <div class="flex flex-wrap gap-8 text-sm font-ui uppercase tracking-[0.3em] text-graphite">
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-ink-blue"></span>Curated, not crowdsourced</span>
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-ink-blue"></span>Author honorarium guaranteed</span>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-soft-gray bg-white p-4 shadow-2xl">
+          <img src="Images/Woman Reading a Book.jpg" alt="Woman reading" class="h-full w-full rounded-2xl object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-b border-soft-gray bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="font-display text-3xl font-semibold">How Elivate Works</p>
+            <p class="mt-2 max-w-reading text-lg text-graphite">Human-led curation replaces algorithms. Each phase keeps members aligned and authors supported.</p>
+          </div>
+          <a href="about.html" class="btn btn-secondary">See Editorial Process</a>
+        </div>
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <article class="card" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Selection</p>
+            <h3 class="mt-3 font-display text-2xl">Editorial Board</h3>
+            <p class="mt-4 text-graphite">150–250 titles reviewed monthly. Final pick announced on the 25th with a full reading guide.</p>
+          </article>
+          <article class="card" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Structure</p>
+            <h3 class="mt-3 font-display text-2xl">Four-Week Plan</h3>
+            <p class="mt-4 text-graphite">Weekly chapters, context briefings, and guided prompts keep every member in sync.</p>
+          </article>
+          <article class="card" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Community</p>
+            <h3 class="mt-3 font-display text-2xl">Moderated Forums</h3>
+            <p class="mt-4 text-graphite">Daily discussion threads managed by staff moderators to protect thoughtful debate.</p>
+          </article>
+          <article class="card" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Access</p>
+            <h3 class="mt-3 font-display text-2xl">Author Sessions</h3>
+            <p class="mt-4 text-graphite">Live Q&As, written interviews, and archival access for members who miss the event.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="rounded-3xl border border-soft-gray bg-white p-10 shadow-sm" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.4em] text-graphite">December 2025 Selection</p>
+            <h3 class="mt-4 font-display text-4xl">Beyond Good and Evil</h3>
+            <p class="font-ui text-lg text-graphite">Friedrich Nietzsche • Philosophy • 352 pages</p>
+            <p class="mt-6 text-lg leading-8 text-graphite">Selected from 200 submissions, this work interrogates the architecture of morality and truth, making it ideal for a month-long conversation. Weekly prompts publish every Monday and Thursday.</p>
+            <dl class="mt-8 grid gap-4 text-sm text-graphite md:grid-cols-2">
+              <div><dt class="font-semibold uppercase tracking-[0.3em]">Week 1</dt><dd>Ch. 1-5 · Context + style</dd></div>
+              <div><dt class="font-semibold uppercase tracking-[0.3em]">Week 2</dt><dd>Ch. 6-10 · Themes + analysis</dd></div>
+              <div><dt class="font-semibold uppercase tracking-[0.3em]">Week 3</dt><dd>Ch. 11-15 · Turning points</dd></div>
+              <div><dt class="font-semibold uppercase tracking-[0.3em]">Week 4</dt><dd>Finale + Author Q&A</dd></div>
+            </dl>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="current-selection.html" class="btn btn-primary">View Reading Guide</a>
+              <a href="events.html" class="btn btn-secondary">Upcoming Discussions</a>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-soft-gray bg-white p-10 shadow-sm" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.4em] text-graphite">What Members Receive</p>
+            <ul class="mt-6 space-y-4 text-lg text-graphite">
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-leaf"></span>Detailed reading guide with historical context</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-leaf"></span>Moderated forums with professional hosts</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-leaf"></span>Live and recorded author conversations</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-gold-leaf"></span>Quarterly surprise selections for Premium+ tiers</li>
+            </ul>
+            <div class="mt-10 rounded-2xl border border-soft-gray bg-whisper p-6">
+              <p class="font-display text-xl">“Less noise. More signal. That is what every Elivate month feels like.”</p>
+              <p class="mt-3 text-sm font-ui text-graphite">— Member survey, Q2 2009</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-soft-gray bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-10 lg:grid-cols-3">
+          <div>
+            <p class="font-display text-3xl font-semibold">Membership Options</p>
+            <p class="mt-3 text-lg text-graphite">Free access for the essentials, Premium for live programming, Patron for those underwriting the mission.</p>
+            <a href="membership.html" class="mt-6 inline-flex items-center text-sm font-semibold text-ink-blue underline-offset-4 hover:underline">View full comparison →</a>
+          </div>
+          <div class="card" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Premium</p>
+            <h3 class="mt-3 font-display text-3xl">$12 / month</h3>
+            <ul class="mt-6 space-y-3 text-graphite">
+              <li>Live author sessions</li>
+              <li>Small group discussions</li>
+              <li>Downloadable archives</li>
+              <li>Quarterly surprise selections</li>
+            </ul>
+            <a href="membership.html#premium" class="mt-8 btn btn-primary w-full justify-center" data-waitlist="true">Upgrade</a>
+          </div>
+          <div class="card border-gold-leaf/60" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Patron</p>
+            <h3 class="mt-3 font-display text-3xl">$50 / month</h3>
+            <ul class="mt-6 space-y-3 text-graphite">
+              <li>Signed editions</li>
+              <li>Private author salons</li>
+              <li>Patron council voting rights</li>
+              <li>Annual symposium invitation</li>
+            </ul>
+            <a href="membership.html#patron" class="mt-8 btn btn-secondary w-full justify-center" data-waitlist="true">Support the Mission</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <p class="font-display text-3xl font-semibold">Voices from the Community</p>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <article class="card" data-animate>
+            <p class="text-sm font-ui uppercase tracking-[0.3em] text-graphite">Member</p>
+            <p class="mt-4 text-lg leading-8">“The reading guides read like mini-seminars. I never feel lost, even with dense texts.”</p>
+            <p class="mt-4 text-sm text-graphite">Anya • Toronto</p>
+          </article>
+          <article class="card" data-animate>
+            <p class="text-sm font-ui uppercase tracking-[0.3em] text-graphite">Author</p>
+            <p class="mt-4 text-lg leading-8">“Elivate treats writers as partners. The Q&A generated the most thoughtful questions I’ve had on tour.”</p>
+            <p class="mt-4 text-sm text-graphite">James W. • Featured Author</p>
+          </article>
+          <article class="card" data-animate>
+            <p class="text-sm font-ui uppercase tracking-[0.3em] text-graphite">Educator</p>
+            <p class="mt-4 text-lg leading-8">“Their resources slide directly into my curriculum. It’s the professional book club I always wanted.”</p>
+            <p class="mt-4 text-sm text-graphite">Marisol R. • Educator</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-soft-gray bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="rounded-3xl border border-soft-gray bg-whisper p-10" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.4em] text-graphite">Upcoming Events</p>
+            <ul class="mt-6 space-y-4">
+              <li class="flex items-center justify-between">
+                <div>
+                  <p class="font-display text-2xl">Jan 7 — Week 1 Discussion</p>
+                  <p class="text-sm text-graphite">Virtual · 8:00 PM EST</p>
+                </div>
+                <a href="events.html" class="btn btn-secondary">RSVP</a>
+              </li>
+              <li class="flex items-center justify-between">
+                <div>
+                  <p class="font-display text-2xl">Jan 14 — Week 2 Discussion</p>
+                  <p class="text-sm text-graphite">Virtual · 8:00 PM EST</p>
+                </div>
+                <a href="events.html" class="btn btn-secondary">RSVP</a>
+              </li>
+              <li class="flex items-center justify-between">
+                <div>
+                  <p class="font-display text-2xl">Jan 28 — Author Q&A</p>
+                  <p class="text-sm text-graphite">Premium & Patron · 7:00 PM EST</p>
+                </div>
+                <a href="events.html" class="btn btn-primary">Reserve Seat</a>
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-soft-gray bg-white p-10" data-animate>
+            <p class="font-ui text-xs uppercase tracking-[0.4em] text-graphite">Resources</p>
+            <p class="mt-3 text-lg text-graphite">Reading guides, educator packets, and local chapter kits keep the mission moving.</p>
+            <div class="mt-8 space-y-4">
+              <a href="resources.html" class="flex items-center justify-between rounded-2xl border border-soft-gray px-6 py-4 text-lg text-graphite transition-colors hover:border-ink-blue">
+                Reading Guides <span class="text-sm font-ui uppercase tracking-[0.3em]">PDF</span>
+              </a>
+              <a href="resources.html#educators" class="flex items-center justify-between rounded-2xl border border-soft-gray px-6 py-4 text-lg text-graphite transition-colors hover:border-ink-blue">
+                Educator Kits <span class="text-sm font-ui uppercase tracking-[0.3em]">Free</span>
+              </a>
+              <a href="resources.html#bookstores" class="flex items-center justify-between rounded-2xl border border-soft-gray px-6 py-4 text-lg text-graphite transition-colors hover:border-ink-blue">
+                Bookstore Partnerships <span class="text-sm font-ui uppercase tracking-[0.3em]">Toolkit</span>
+              </a>
+            </div>
+            <img src="Images/Teacup on Books.jpg" alt="Teacup on books" class="mt-8 w-full rounded-2xl object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 border-t border-stone-gray bg-whisper">
+    <div aria-hidden="true" class="bg-parchment">
+      <svg class="h-8 w-full text-parchment" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 80V0c120 0 120 40 240 40s120-40 240-40 120 40 240 40 120-40 240-40 120 40 240 40 120-40 240-40v80Z" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="mx-auto max-w-6xl px-6 py-12 space-y-8" data-animate>
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl font-semibold">Elivate Book Club</p>
+          <p class="text-sm text-graphite">Reading as an act of future-building.</p>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-graphite">
+          <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+          <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+          <a class="hover:text-ink-blue" href="about.html">About</a>
+          <a class="hover:text-ink-blue" href="events.html">Events</a>
+          <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+          <a class="hover:text-ink-blue" href="trust-and-standards.html">Standards</a>
+          <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+            <a class="hover:text-ink-blue" href="author-support.html">Author Support</a>
+        </nav>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-wrap gap-6 text-sm text-graphite">
+          <a class="hover:text-ink-blue" href="mailto:brand@elivatebookclub.com">Contact us</a>
+          <a class="hover:text-ink-blue" href="mailto:community@elivatebookclub.com">Give feedback</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="X">
+            <span class="sr-only">X</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 5l12 14M6 19L18 5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="YouTube">
+            <span class="sr-only">YouTube</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2.5" y="7" width="19" height="10" rx="3"></rect>
+              <path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+              <path d="M7 10v7M7 7.5v.1M13 10v7m0-4c0-1.5 1-3 3-3s3 1 3 3v4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <span class="inline-flex items-center justify-center rounded-full border border-literary-black px-4 py-1 font-ui text-sm font-semibold">Elivate</span>
+          <p class="text-xs text-graphite">© 2025 Elivate Book Club. All rights reserved.</p>
+          <div class="flex flex-wrap gap-3 text-xs text-ink-blue">
+            <a class="hover:underline" href="trust-and-standards.html">Accessibility</a>
+            <a class="hover:underline" href="resources.html">Resource Hub</a>
+            <a class="hover:underline" href="author-support.html">Author Support</a>
+          </div>
+        </div>
+        <a href="#top" class="inline-flex items-center justify-end gap-2 text-sm font-semibold text-ink-blue">Back to top<span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

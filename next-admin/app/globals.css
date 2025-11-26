@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-blue: #1E3A5F;
+  --parchment: #F7F3E9;
+  --literary-black: #0A0908;
+  --graphite: #2C2B28;
+  --soft-gray: #E8E6DC;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--literary-black);
+  font-family: 'Crimson Pro', Georgia, serif;
+}
+
+a { color: var(--ink-blue); }

@@ -1,0 +1,159 @@
+:root {
+  --animate-duration: 320ms;
+  --animate-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--animate-duration) var(--animate-ease),
+              transform var(--animate-duration) var(--animate-ease);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Waitlist modal */
+.waitlist-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.55);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 9999;
+}
+
+.waitlist-overlay.active {
+  display: flex;
+}
+
+.waitlist-modal {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border: 1px solid var(--color-border, #E8E6DC);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.waitlist-modal h3 {
+  margin: 0 0 8px 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+}
+
+.waitlist-modal p {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #2C2B28;
+}
+
+.waitlist-modal form {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.waitlist-modal input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #E8E6DC;
+  font-size: 14px;
+}
+
+.waitlist-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.waitlist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #1E3A5F;
+  background: #1E3A5F;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.waitlist-btn.secondary {
+  background: transparent;
+  color: #1E3A5F;
+}
+
+/* Author process styling */
+.process-timeline {
+  position: relative;
+  gap: 16px;
+}
+.process-timeline::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(30,58,95,0.35), rgba(30,58,95,0.05));
+}
+.process-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--color-border, #E8E6DC);
+  border-radius: 16px;
+  padding: 16px 16px 16px 56px;
+  box-shadow: 0 8px 18px rgba(10, 9, 8, 0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.process-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 12px 26px rgba(10, 9, 8, 0.08);
+  border-color: #1E3A5F;
+}
+.process-badge {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #1E3A5F;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(30, 58, 95, 0.25);
+}
+.process-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E3A5F;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+}
+.process-copy {
+  margin: 6px 0 0 0;
+  font-size: 15px;
+  color: #2C2B28;
+  font-family: 'Crimson Pro', Georgia, serif;
+}

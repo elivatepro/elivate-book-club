@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership · Elivate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'literary-black': '#0A0908',
+            parchment: '#F7F3E9',
+            graphite: '#2C2B28',
+            'ink-blue': '#1E3A5F',
+            'margin-red': '#8B2635',
+            'gold-leaf': '#C9A961',
+            sage: '#6B7F59',
+            'stone-gray': '#B8B5AD',
+            'soft-gray': '#E8E6DC',
+            whisper: '#FAF9F5'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Crimson Pro', 'Georgia', 'serif'],
+            ui: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {body {@apply bg-parchment text-literary-black font-body;}}
+    table {border-collapse: collapse; width: 100%;}
+    th, td {@apply border border-soft-gray px-4 py-3 text-sm;}
+  </style>
+  <script defer src="site.js"></script>
+</head>
+<body id="top">
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-stone-gray bg-[rgba(250,249,245,0.95)] backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="font-display text-2xl">Elivate</a>
+      <nav class="hidden items-center gap-6 font-ui text-sm text-graphite md:flex">
+        <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+        <a class="hover:text-ink-blue" href="events.html">Events</a>
+        <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+        <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+      </nav>
+      <a href="#join" class="inline-flex items-center rounded border border-ink-blue px-5 py-2 text-xs font-semibold text-ink-blue transition hover:bg-ink-blue hover:text-white" data-waitlist="true">Join</a>
+    </div>
+  </header>
+
+  <main class="pt-28">
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Membership</p>
+        <h1 class="mt-4 font-display text-4xl font-black">Choose the level that matches your commitment.</h1>
+        <p class="mt-4 max-w-reading text-lg text-graphite">All members receive core programming. Premium unlocks live access and archives. Patrons underwrite author honorariums and future programming.</p>
+      </div>
+    </section>
+
+    <section id="join" class="border-t border-soft-gray bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl border border-soft-gray bg-white p-8 shadow-sm">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Free</p>
+            <h3 class="mt-3 font-display text-3xl">$0</h3>
+            <ul class="mt-5 space-y-3 text-graphite">
+              <li>Monthly book announcements</li>
+              <li>Forum participation</li>
+              <li>Reading guides</li>
+              <li>Recorded author sessions (48h)</li>
+              <li>Newsletter</li>
+            </ul>
+            <button class="mt-6 w-full rounded border border-ink-blue px-4 py-2 font-ui text-sm font-semibold text-ink-blue transition hover:bg-ink-blue hover:text-white" data-waitlist="true">Start Free</button>
+          </article>
+          <article id="premium" class="rounded-3xl border border-ink-blue bg-white p-8 shadow-lg">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Premium</p>
+            <h3 class="mt-3 font-display text-3xl">$12 / month</h3>
+            <ul class="mt-5 space-y-3 text-graphite">
+              <li>Everything in Free</li>
+              <li>Advance announcements (+5 days)</li>
+              <li>Live author sessions</li>
+              <li>Small group discussions (20 ppl)</li>
+              <li>Downloadable archives</li>
+              <li>Quarterly surprise books</li>
+            </ul>
+            <button class="mt-6 w-full rounded bg-ink-blue px-4 py-2 font-ui text-sm font-semibold text-white transition hover:bg-[#152d4d]" data-waitlist="true">Upgrade</button>
+          </article>
+          <article id="patron" class="rounded-3xl border border-gold-leaf bg-white p-8 shadow-sm">
+            <p class="font-ui text-xs uppercase tracking-[0.3em] text-graphite">Patron</p>
+            <h3 class="mt-3 font-display text-3xl">$50 / month</h3>
+            <ul class="mt-5 space-y-3 text-graphite">
+              <li>Everything in Premium</li>
+              <li>Signed first editions</li>
+              <li>Private author sessions (10 ppl)</li>
+              <li>Patron Council vote</li>
+              <li>Annual symposium ticket</li>
+              <li>Sponsor a student membership</li>
+            </ul>
+            <button class="mt-6 w-full rounded border border-gold-leaf px-4 py-2 font-ui text-sm font-semibold text-gold-leaf transition hover:bg-gold-leaf hover:text-literary-black" data-waitlist="true">Become Patron</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <h2 class="font-display text-3xl font-semibold">Benefit Comparison</h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl border border-soft-gray bg-parchment shadow-sm">
+          <table>
+            <thead class="bg-whisper text-left">
+              <tr>
+                <th>Features</th>
+                <th>Free</th>
+                <th>Premium</th>
+                <th>Patron</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Monthly selection</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Discussion forums</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Reading guides</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Newsletter</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Live author sessions</td><td>Recording only</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Small group discussions</td><td>–</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Early announcements</td><td>–</td><td>✓</td><td>✓</td></tr>
+              <tr><td>Surprise books</td><td>–</td><td>Quarterly</td><td>Quarterly</td></tr>
+              <tr><td>Signed editions</td><td>–</td><td>–</td><td>✓</td></tr>
+              <tr><td>Private author sessions</td><td>–</td><td>–</td><td>✓</td></tr>
+              <tr><td>Patron Council</td><td>–</td><td>–</td><td>✓</td></tr>
+              <tr><td>Symposium invite</td><td>–</td><td>–</td><td>✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-soft-gray bg-parchment" data-animate>
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 class="font-display text-3xl font-semibold">Frequently Asked Questions</h2>
+            <div class="mt-6 space-y-5 text-graphite">
+              <details class="rounded-2xl border border-soft-gray bg-white p-5">
+                <summary class="cursor-pointer font-ui text-sm font-semibold">Can I change my membership level?</summary>
+                <p class="mt-3 text-sm">Yes. Upgrades/downgrades take effect on the next billing cycle.</p>
+              </details>
+              <details class="rounded-2xl border border-soft-gray bg-white p-5">
+                <summary class="cursor-pointer font-ui text-sm font-semibold">Do you offer gift memberships?</summary>
+                <p class="mt-3 text-sm">Premium and Patron tiers can be gifted for 3, 6, or 12 months.</p>
+              </details>
+              <details class="rounded-2xl border border-soft-gray bg-white p-5">
+                <summary class="cursor-pointer font-ui text-sm font-semibold">Student discounts?</summary>
+                <p class="mt-3 text-sm">Students with .edu emails receive 50% off Premium.</p>
+              </details>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-soft-gray bg-white p-10">
+            <h3 class="font-display text-2xl">Our Commitments</h3>
+            <ul class="mt-6 space-y-4 text-graphite">
+              <li>One book per month, no filler.</li>
+              <li>No hidden fees or upsells.</li>
+              <li>Author honorarium of $2,500 minimum.</li>
+              <li>Transparent selection process.</li>
+              <li>Equal access to core features.</li>
+            </ul>
+            <img src="Images/Young Women Reading Books.jpg" alt="Members reading" class="mt-6 w-full rounded-2xl object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 border-t border-stone-gray bg-whisper">
+    <div aria-hidden="true" class="bg-parchment">
+      <svg class="h-8 w-full text-parchment" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 80V0c120 0 120 40 240 40s120-40 240-40 120 40 240 40 120-40 240-40 120 40 240 40 120-40 240-40v80Z" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="mx-auto max-w-6xl px-6 py-12 space-y-8" data-animate>
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl font-semibold">Elivate Book Club</p>
+          <p class="text-sm text-graphite">Reading as an act of future-building.</p>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-graphite">
+          <a class="hover:text-ink-blue" href="current-selection.html">Current Selection</a>
+          <a class="hover:text-ink-blue" href="membership.html">Membership</a>
+          <a class="hover:text-ink-blue" href="about.html">About</a>
+          <a class="hover:text-ink-blue" href="events.html">Events</a>
+          <a class="hover:text-ink-blue" href="resources.html">Resources</a>
+          <a class="hover:text-ink-blue" href="trust-and-standards.html">Standards</a>
+          <a class="hover:text-ink-blue" href="authors.html">Authors</a>
+          <a class="hover:text-ink-blue" href="author-support.html">Author Support</a>
+        </nav>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-wrap gap-6 text-sm text-graphite">
+          <a class="hover:text-ink-blue" href="mailto:brand@elivatebookclub.com">Contact us</a>
+          <a class="hover:text-ink-blue" href="mailto:community@elivatebookclub.com">Give feedback</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="X">
+            <span class="sr-only">X</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 5l12 14M6 19L18 5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="YouTube">
+            <span class="sr-only">YouTube</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2.5" y="7" width="19" height="10" rx="3"></rect>
+              <path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"></path>
+            </svg>
+          </a>
+          <a class="flex h-10 w-10 items-center justify-center rounded-full border border-soft-gray text-graphite transition hover:border-ink-blue" href="#" aria-label="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+              <path d="M7 10v7M7 7.5v.1M13 10v7m0-4c0-1.5 1-3 3-3s3 1 3 3v4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr class="border-soft-gray" />
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <span class="inline-flex items-center justify-center rounded-full border border-literary-black px-4 py-1 font-ui text-sm font-semibold">Elivate</span>
+          <p class="text-xs text-graphite">© 2025 Elivate Book Club. All rights reserved.</p>
+          <div class="flex flex-wrap gap-3 text-xs text-ink-blue">
+            <a class="hover:underline" href="trust-and-standards.html">Accessibility</a>
+            <a class="hover:underline" href="resources.html">Resource Hub</a>
+            <a class="hover:underline" href="author-support.html">Author Support</a>
+          </div>
+        </div>
+        <a href="#top" class="inline-flex items-center justify-end gap-2 text-sm font-semibold text-ink-blue">Back to top<span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
