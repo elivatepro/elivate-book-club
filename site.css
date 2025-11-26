@@ -273,3 +273,10 @@
     display: none !important;
   }
 }
+
+/* Hide any header CTA button on mobile */
+@media (max-width: 767px) {
+  header .btn {
+    display: none !important;
+  }
+}
