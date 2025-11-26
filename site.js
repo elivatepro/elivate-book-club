@@ -75,3 +75,61 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(closeModal, 1200);
   });
 })();
+
+// Mobile nav
+(function() {
+  const header = document.querySelector('header');
+  if (!header) return;
+  const nav = header.querySelector('nav');
+  if (!nav) return;
+
+  const toggle = document.createElement('button');
+  toggle.className = 'mobile-menu-button md:hidden';
+  toggle.type = 'button';
+  toggle.setAttribute('aria-label', 'Open menu');
+  toggle.innerHTML = '<span></span>';
+  nav.parentNode.insertBefore(toggle, nav);
+
+  const links = Array.from(nav.querySelectorAll('a')).map((a) => {
+    const href = a.getAttribute('href') || '#';
+    const text = a.textContent || '';
+    return `<a href="${href}">${text}</a>`;
+  }).join('');
+
+  const cta = header.querySelector('[data-waitlist="true"]');
+  const ctaText = cta ? (cta.textContent || 'Join') : 'Join';
+  const ctaHref = cta ? (cta.getAttribute('href') || '#') : '#';
+  const ctaAttr = cta && cta.hasAttribute('data-waitlist') ? 'data-waitlist="true"' : '';
+
+  const overlay = document.createElement('div');
+  overlay.className = 'mobile-menu-overlay';
+  overlay.innerHTML = `
+    <div class="mobile-menu-panel">
+      <button class="close-btn" aria-label="Close menu">×</button>
+      <div class="mobile-menu-links">
+        ${links}
+      </div>
+      <div class="mobile-menu-cta">
+        <a href="${ctaHref}" class="btn btn-primary" ${ctaAttr}>${ctaText}</a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  const panel = overlay.querySelector('.mobile-menu-panel');
+  const closeBtn = overlay.querySelector('.close-btn');
+
+  function openMenu() {
+    overlay.classList.add('active');
+    panel.classList.add('active');
+  }
+  function closeMenu() {
+    overlay.classList.remove('active');
+    panel.classList.remove('active');
+  }
+
+  toggle.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeMenu();
+  });
+})();
